@@ -3,3 +3,9 @@ C:\Users\Hubert\source\repos\IO_Lab_1_Zad_5\IO_Lab_1_Zad_5\bin\Debug\IO_Lab_1_Za
 C:\Users\Hubert\source\repos\IO_Lab_1_Zad_5\IO_Lab_1_Zad_5\obj\Debug\IO_Lab_1_Zad_5.csproj.CoreCompileInputs.cache
 C:\Users\Hubert\source\repos\IO_Lab_1_Zad_5\IO_Lab_1_Zad_5\obj\Debug\IO_Lab_1_Zad_5.exe
 C:\Users\Hubert\source\repos\IO_Lab_1_Zad_5\IO_Lab_1_Zad_5\obj\Debug\IO_Lab_1_Zad_5.pdb
+C:\Users\Hubert\source\repos\IO-Lab_1_Zad_5\IO_Lab_1_Zad_5\obj\Debug\IO_Lab_1_Zad_5.csprojResolveAssemblyReference.cache
+C:\Users\Hubert\source\repos\IO-Lab_1_Zad_5\IO_Lab_1_Zad_5\obj\Debug\IO_Lab_1_Zad_5.csproj.CoreCompileInputs.cache
+C:\Users\Hubert\source\repos\IO-Lab_1_Zad_5\IO_Lab_1_Zad_5\obj\Debug\IO_Lab_1_Zad_5.exe
+C:\Users\Hubert\source\repos\IO-Lab_1_Zad_5\IO_Lab_1_Zad_5\obj\Debug\IO_Lab_1_Zad_5.pdb
+C:\Users\Hubert\source\repos\IO-Lab_1_Zad_5\IO_Lab_1_Zad_5\bin\Debug\IO_Lab_1_Zad_5.exe
+C:\Users\Hubert\source\repos\IO-Lab_1_Zad_5\IO_Lab_1_Zad_5\bin\Debug\IO_Lab_1_Zad_5.pdb
