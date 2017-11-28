@@ -15,41 +15,53 @@ namespace IO_Lab_1_Zad_5
         public static int SIZE_Frag = 32;
         public static int Sum = 0;
         static int[] tab = new int[SIZE_Tab];
-        private static AutoResetEvent event_1 = new AutoResetEvent(true);
+        public static readonly object Lock = new object();
         static void Main(string[] args)
         {
             
             Random rnd = new Random();
             for (int i = 0; i < SIZE_Tab; i++)
                 tab[i] = rnd.Next(0, 100);
-            for (int i = 0; i < SIZE_Tab; i++)
-                Console.WriteLine(tab[i] + " ");
-            int count = SIZE_Tab / SIZE_Frag;
-            for(int i = 0; i < count; i++)
-                ThreadPool.QueueUserWorkItem(new WaitCallback(ThreadSum), new object[] { i * SIZE_Frag, (i + 1) * SIZE_Frag });
 
-            //WaitHandle.WaitAll();
-            Console.WriteLine(Sum);
+            int pom = sum(tab, 0, SIZE_Tab);
+            Console.WriteLine("Suma testowa: " + pom);
+            
+          
+            int count = SIZE_Tab / SIZE_Frag;
+            AutoResetEvent[] are = new AutoResetEvent[count];
+
+            for (int i = 0; i < count; i++)
+                are[i] = new AutoResetEvent(false);
+
+            for (int i = 0; i < count; i++)
+                ThreadPool.QueueUserWorkItem(new WaitCallback(ThreadSum), new object[] { i * SIZE_Frag, (i + 1) * SIZE_Frag, are[i] });      
+            WaitHandle.WaitAll(are);
+            Console.WriteLine("Suma na watkach: " + Sum);
 
         }
         static void ThreadSum(Object stateInfo)
         {
             var start_pom = ((object[])stateInfo)[0];
             var end_pom = ((object[])stateInfo)[1];
+            AutoResetEvent are = ((object[])stateInfo)[2] as AutoResetEvent;
             int start = (int)start_pom;
             int end = (int)end_pom;
             int pom = sum(tab, start, end);
             Sum += pom;
+            are.Set();
         }
 
         static int sum(int[] tab, int start, int end)
         {
-            int pom = 0;
-            for(int i = start; i < end; i++)
+            lock (Lock)
             {
-                pom += tab[i];
+                int pom = 0;
+                for (int i = start; i < end; i++)
+                {
+                    pom += tab[i];
+                }
+                return pom;
             }
-            return pom;
         }
 
     }
